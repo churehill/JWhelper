@@ -1,3 +1,10 @@
+/**
+ * @author churehill
+ * @email churehill@163.com
+ * @version 1.0
+ * @time 2014-07
+ * 
+ */
 package cn.edu.nwpu.jwhelper;
 
 import java.io.BufferedReader;
