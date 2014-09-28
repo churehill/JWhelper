@@ -19,14 +19,19 @@ import java.util.regex.Pattern;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.LayoutInflater;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ScoresActivity extends ListActivity {
@@ -46,10 +51,19 @@ public class ScoresActivity extends ListActivity {
 
 		setContentView(R.layout.activity_scores);
 
+		
+		View footerView = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.scores_footer, null, false);
+		TextView footerTextView = (TextView)footerView.findViewById(R.id.copyright);
+		footerTextView.setMovementMethod(LinkMovementMethod.getInstance());
+		footerTextView.setText(Html.fromHtml("Powered by <a href='http://zone.tpircsboy.com/jump.php'>tpircsboy</a>"));
+		getListView().addFooterView(footerView,null,false);
+		
 		scoresArray = new ArrayList<String>();
 		adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, scoresArray);
 		setListAdapter(adapter);
+		 
+		
 		proDialog = ProgressDialog.show(ScoresActivity.this, "正在获取成绩数据", "",
 				true, false);
 

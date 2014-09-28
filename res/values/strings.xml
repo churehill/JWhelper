@@ -10,5 +10,6 @@
 	<string name="clearInput">清空</string>
 	<string name="scoresList">成绩列表</string>
 	<string name="refresh">刷新</string>
+	<string name="copyright">Powered by tpircsboy</string>
     
 </resources>
